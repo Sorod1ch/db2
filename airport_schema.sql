@@ -1,8 +1,4 @@
 
--- SQL schema for an Airport database
--- This schema includes 5 tables with at least 3 meaningful columns each (excluding IDs and foreign keys).
-
--- Table for Airports
 CREATE TABLE Airports (
     airport_id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -11,7 +7,7 @@ CREATE TABLE Airports (
     code VARCHAR(5) NOT NULL
 );
 
--- Table for Airlines
+
 CREATE TABLE Airlines (
     airline_id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -19,7 +15,7 @@ CREATE TABLE Airlines (
     founded_year INT
 );
 
--- Table for Aircrafts
+
 CREATE TABLE Aircrafts (
     aircraft_id INT PRIMARY KEY,
     model VARCHAR(255) NOT NULL,
@@ -28,7 +24,6 @@ CREATE TABLE Aircrafts (
     FOREIGN KEY (airline_id) REFERENCES Airlines(airline_id)
 );
 
--- Table for Flights
 CREATE TABLE Flights (
     flight_id INT PRIMARY KEY,
     flight_number VARCHAR(10) NOT NULL,
@@ -43,7 +38,7 @@ CREATE TABLE Flights (
     FOREIGN KEY (destination_airport_id) REFERENCES Airports(airport_id)
 );
 
--- Table for Passengers
+
 CREATE TABLE Passengers (
     passenger_id INT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
@@ -51,7 +46,7 @@ CREATE TABLE Passengers (
     passport_number VARCHAR(20) NOT NULL
 );
 
--- Table for Flight Bookings
+
 CREATE TABLE FlightBookings (
     booking_id INT PRIMARY KEY,
     flight_id INT NOT NULL,
